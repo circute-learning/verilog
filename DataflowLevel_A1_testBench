@@ -1,0 +1,81 @@
+`timescale 1ns / 1ps
+
+////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:
+//
+// Create Date:   20:52:54 01/15/2019
+// Design Name:   A1
+// Module Name:   C:/Users/Moneera_/Documents/0/youtube/circute/verilog/program files/dataflowLevel/A1Test.v
+// Project Name:  dataflowLevel
+// Target Device:  
+// Tool versions:  
+// Description: 
+//
+// Verilog Test Fixture created by ISE for module: A1
+//
+// Dependencies:
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+////////////////////////////////////////////////////////////////////////////////
+
+module A1Test;
+
+	// Inputs
+	reg a;
+	reg b;
+	reg c;
+
+	// Outputs
+	wire f;
+
+	// Instantiate the Unit Under Test (UUT)
+	A1 uut (
+		.a(a), 
+		.b(b), 
+		.c(c), 
+		.f(f)
+	);
+
+	initial begin
+		// Initialize Inputs
+		a = 0;
+		b = 0;
+		c = 0;
+
+		// Wait 100 ns for global reset to finish
+		#10;
+		a=0; b=0; c=0;
+		
+		#10;
+		a=0; b=0; c=1;
+		
+		#10;
+		a=0; b=1; c=0;
+		
+		#10;
+		a=0; b=1; c=1;
+		
+		#10;
+		a=1; b=0; c=0;
+		
+		#10;
+		a=1; b=0; c=1;
+		
+		#10;
+		a=1; b=1; c=0;
+		
+		#10;
+		a=1; b=1; c=1;
+		
+		#10 $finish;
+        
+		// Add stimulus here
+
+	end
+      
+endmodule
+
