@@ -1,0 +1,17 @@
+`timescale 1ns / 1ps
+
+module non(
+input a,
+input clk,
+output reg c
+    );
+
+reg b;
+
+always @ (posedge clk)
+begin
+	b <= a;
+	c <= b;
+end
+
+endmodule
