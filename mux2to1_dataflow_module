@@ -1,0 +1,15 @@
+`timescale 1ns / 1ps
+
+module mux2to1_dataflow(
+input I0,
+input I1,
+input select,
+output y
+    );
+	
+//the below two ways are equals
+assign y = (~select && I0) || (select && I1);
+//assign y = select ? I1 : I0;
+
+
+endmodule
