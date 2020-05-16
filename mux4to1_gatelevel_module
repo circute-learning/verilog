@@ -1,0 +1,21 @@
+`timescale 1ns / 1ps
+
+module mux4to1(
+input [3:0]i,
+input [1:0]s,
+output y
+    );
+	 
+wire w1;
+wire w2;
+wire w3;
+wire w4;
+
+and g1(w1,~s[1],~s[0],i[0]);
+and g2(w2,~s[1],s[0],i[1]);
+and g3(w3,s[1],~s[0],i[2]);
+and g4(w4,s[1],s[0],i[3]);
+or g5(y,w1,w2,w3,w4);
+
+
+endmodule
