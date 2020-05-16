@@ -1,0 +1,17 @@
+`timescale 1ns / 1ps
+
+module mux2to1_gatLevel(
+input I0,
+input I1,
+input select,
+output y
+    );
+
+wire w1;
+wire w2;
+
+and g1(w1,~select,I0);
+and g2(w2,select,I1);
+or g3(y,w1,w2);
+
+endmodule
