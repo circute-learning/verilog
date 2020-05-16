@@ -1,0 +1,70 @@
+`timescale 1ns / 1ps
+
+
+module mux4to1_multi_test;
+
+	// Inputs
+	reg [4:0] i0;
+	reg [4:0] i1;
+	reg [4:0] i2;
+	reg [4:0] i3;
+	reg [1:0] s;
+
+	// Outputs
+	wire [4:0] y;
+
+	// Instantiate the Unit Under Test (UUT)
+	mux4to1 uut (
+		.i0(i0), 
+		.i1(i1), 
+		.i2(i2), 
+		.i3(i3), 
+		.s(s), 
+		.y(y)
+	);
+
+	initial begin
+		// Initialize Inputs
+		i0 = 0;
+		i1 = 0;
+		i2 = 0;
+		i3 = 0;
+		s = 0;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+		i0 = 5'b00000;
+		i1 = 5'b11111;
+		i2 = 5'b00111;
+		i3 = 5'b11000;
+		s = 2'b00;
+		
+		#100;
+		i0 = 5'b00000;
+		i1 = 5'b11111;
+		i2 = 5'b00111;
+		i3 = 5'b11000;
+		s = 2'b01;
+		
+		#100;
+		i0 = 5'b00000;
+		i1 = 5'b11111;
+		i2 = 5'b00111;
+		i3 = 5'b11000;
+		s = 2'b10;
+		
+		#100;
+		i0 = 5'b00000;
+		i1 = 5'b11111;
+		i2 = 5'b00111;
+		i3 = 5'b11000;
+		s = 2'b11;
+		
+		#100 $finish;
+        
+		// Add stimulus here
+
+	end
+      
+endmodule
+
