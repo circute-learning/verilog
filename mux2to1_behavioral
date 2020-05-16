@@ -1,0 +1,18 @@
+`timescale 1ns / 1ps
+
+module mux2to1_behavioral(
+input I0,
+input I1,
+input select,
+output reg y
+    );
+	 
+always @ (*)
+begin
+	if (select == 0)
+		y = I0;
+	else if (select == 1)
+		y = I1;
+end
+
+endmodule
