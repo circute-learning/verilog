@@ -1,0 +1,47 @@
+`timescale 1ns / 1ps
+
+
+
+module mux2to1_gateLevel_test;
+
+	// Inputs
+	reg I0;
+	reg I1;
+	reg select;
+
+	// Outputs
+	wire y;
+
+	// Instantiate the Unit Under Test (UUT)
+	mux2to1_gatLevel uut (
+		.I0(I0), 
+		.I1(I1), 
+		.select(select), 
+		.y(y)
+	);
+
+	initial begin
+		// Initialize Inputs
+		I0 = 0;
+		I1 = 0;
+		select = 0;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+		I0 = 0;
+		I1 = 1;
+		select = 0;
+		
+		#100;
+		I0 = 0;
+		I1 = 1;
+		select = 1;
+		
+		#100 $finish;
+        
+		// Add stimulus here
+
+	end
+      
+endmodule
+
