@@ -1,0 +1,19 @@
+`timescale 1ns / 1ps
+
+module decoder(
+input x,
+input y,
+input z,
+output [7:0]f
+    );
+	 
+assign f[0] = ~x && ~y && ~z;
+assign f[1] = ~x && ~y && z;
+assign f[2] = ~x && y && ~z;
+assign f[3] = ~x && y && z;
+assign f[4] = x && ~y && ~z;
+assign f[5] = x && ~y && z;
+assign f[6] = x && y && ~z;
+assign f[7] = x && y && z;
+
+endmodule
