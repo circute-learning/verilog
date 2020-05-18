@@ -1,0 +1,37 @@
+`timescale 1ns / 1ps
+
+module decoder(
+input x,
+input y,
+input z,
+output reg [7:0]f
+    );
+	 
+always @ (x or y or z)
+begin
+	case(x)
+	0: case(y)
+		0: case(z)
+			0: f = 8'b10000000;
+			1: f = 8'b01000000;
+			endcase
+		1: case(z)
+			0: f = 8'b00100000;
+			1: f = 8'b00010000;
+			endcase
+		endcase
+	1: case(y)
+		0: case(z)
+			0: f = 8'b00001000;
+			1: f = 8'b00000100;
+			endcase
+		1: case(z)
+			0: f = 8'b00000010;
+			1: f = 8'b00000001;
+			endcase
+		endcase
+	endcase
+end
+
+
+endmodule
