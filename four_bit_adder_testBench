@@ -1,0 +1,50 @@
+`timescale 1ns / 1ps
+
+
+module four_bit_adder_test;
+
+	// Inputs
+	reg [3:0] a;
+	reg [3:0] b;
+	reg c0;
+
+	// Outputs
+	wire cout;
+	wire [3:0] s;
+
+	// Instantiate the Unit Under Test (UUT)
+	four_bit_adder uut (
+		.a(a), 
+		.b(b), 
+		.c0(c0), 
+		.cout(cout), 
+		.s(s)
+	);
+
+	initial begin
+		// Initialize Inputs
+		a = 0;
+		b = 0;
+		c0 = 0;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+		
+		a = 4'b0110;
+		b = 4'b0010;
+		#100;
+		
+		a = 4'b0111;
+		b = 4'b0101;
+		#100;
+		
+		a = 4'b1010;
+		b = 4'b1010;
+		#100 $finish;
+        
+		// Add stimulus here
+
+	end
+      
+endmodule
+
