@@ -1,0 +1,26 @@
+`timescale 1ns / 1ps
+
+module full_adder(
+input a,b,cin,
+output cout,s
+    );
+
+//uncomment the below lines to test the Gate Level style
+/*	 
+wire w1,w2,w3;
+
+xor g1(s,a,b,cin);
+
+xor g2(w1,a,b);
+and g3(w2,w1,cin);
+and g4(w3,a,b);
+or g5(cout,w2,w3);
+*/
+
+wire c1,s1,c2;
+
+half_adder ha1(a,b,c1,s1);
+half_adder ha2(s1,cin,c2,s);
+or g1(cout,c1,c2);
+
+endmodule
