@@ -1,0 +1,42 @@
+`timescale 1ns / 1ps
+
+
+
+module half_adder_test;
+
+	// Inputs
+	reg x;
+	reg y;
+
+	// Outputs
+	wire c;
+	wire s;
+
+	// Instantiate the Unit Under Test (UUT)
+	half_adder uut (
+		.x(x), 
+		.y(y), 
+		.c(c), 
+		.s(s)
+	);
+
+	initial begin
+		// Initialize Inputs
+		x = 0; y = 0;
+		
+		#100;
+		x = 0; y = 1;
+		
+		#100;
+		x = 1; y = 0;
+		
+		#100;
+		x = 1; y = 1;
+		
+      #100 $finish; 
+		// Add stimulus here
+
+	end
+      
+endmodule
+
