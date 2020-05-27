@@ -1,0 +1,18 @@
+`timescale 1ns / 1ps
+
+module four_bit_adder(
+input [3:0]a,
+input [3:0]b,
+input c0,
+output cout,
+output [3:0]s
+    );
+
+wire c1,c2,c3;
+
+full_adder fa1(a[0],b[0],c0,c1,s[0]);
+full_adder fa2(a[1],b[1],c1,c2,s[1]);
+full_adder fa3(a[2],b[2],c2,c3,s[2]);
+full_adder fa4(a[3],b[3],c3,cout,s[3]);
+
+endmodule
