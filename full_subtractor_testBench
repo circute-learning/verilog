@@ -1,0 +1,53 @@
+`timescale 1ns / 1ps
+
+
+module full_subtractor_test;
+
+	// Inputs
+	reg a;
+	reg b;
+	reg bin;
+
+	// Outputs
+	wire diff;
+	wire bout;
+
+	// Instantiate the Unit Under Test (UUT)
+	full_subtractor uut (
+		.a(a), 
+		.b(b), 
+		.bin(bin), 
+		.diff(diff), 
+		.bout(bout)
+	);
+
+	initial begin
+		a = 0; b = 0; bin = 0;
+		#100;
+		
+		a = 0; b = 0; bin = 1;
+		#100;
+		
+		a = 0; b = 1; bin = 0;
+		#100;
+		
+		a = 0; b = 1; bin = 1;
+		#100;
+		
+		a = 1; b = 0; bin = 0;
+		#100;
+		
+		a = 1; b = 0; bin = 1;
+		#100;
+		
+		a = 1; b = 1; bin = 0;
+		#100;
+		
+		a = 1; b = 1; bin = 1;
+		#100 $finish;
+        
+
+	end
+      
+endmodule
+
