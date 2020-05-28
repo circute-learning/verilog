@@ -1,0 +1,14 @@
+`timescale 1ns / 1ps
+
+module full_subtractor(
+input a,b,bin,
+output diff,bout
+    );
+
+wire diff1,borrow1,borrow2;
+
+half_subtractor hs1(a,b,diff1,borrow1);
+half_subtractor hs2(diff1,bin,diff,borrow2);
+or g1(bout,borrow1,borrow2);
+
+endmodule
