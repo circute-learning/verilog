@@ -1,0 +1,39 @@
+`timescale 1ns / 1ps
+
+
+
+module half_subtractor_test;
+
+	// Inputs
+	reg a;
+	reg b;
+
+	// Outputs
+	wire diff;
+	wire borrow;
+
+	// Instantiate the Unit Under Test (UUT)
+	half_subtractor uut (
+		.a(a), 
+		.b(b), 
+		.diff(diff), 
+		.borrow(borrow)
+	);
+
+	initial begin
+		a = 0; b = 0;
+		#100;
+      
+		a = 0; b = 1;
+		#100;
+		
+		a = 1; b = 0;
+		#100;
+		
+		a = 1; b = 1;
+		#100 $finish;
+
+	end
+      
+endmodule
+
