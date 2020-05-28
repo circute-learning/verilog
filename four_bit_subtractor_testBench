@@ -1,0 +1,48 @@
+`timescale 1ns / 1ps
+
+module four_bit_subtractor_test;
+
+	// Inputs
+	reg [3:0] a;
+	reg [3:0] b;
+	reg b0;
+
+	// Outputs
+	wire [3:0] diff;
+	wire bout;
+
+	// Instantiate the Unit Under Test (UUT)
+	four_bit_subtractor uut (
+		.a(a), 
+		.b(b), 
+		.b0(b0), 
+		.diff(diff), 
+		.bout(bout)
+	);
+
+	initial begin
+		// Initialize Inputs
+		a = 0;
+		b = 0;
+		b0 = 0;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+		
+		a = 4'b1010;
+		b = 4'b0111;
+		#100;
+		
+		a = 4'b0011;
+		b = 4'b0111;
+		#100;
+		
+		a = 4'b0011;
+		b = 4'b0110;
+		#100 $finish;
+        
+
+	end
+      
+endmodule
+
