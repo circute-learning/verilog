@@ -1,0 +1,22 @@
+`timescale 1ns / 1ps
+
+module n_bit_comparator #(parameter w=2)(
+input [w-1:0]A,B,
+output reg AgtB,AltB,AeqB
+    );
+//uncomment the below lines to test the Dataflow Level
+//*Note: do not forget to delete "reg" keyword near the output variables 
+/*
+assign AgtB = (A>B)?1:0;
+assign AltB = (A<B);
+assign AeqB = (A==B);
+*/
+
+always @ (A or B)
+begin
+	AgtB = (A>B);
+	AltB = (A<B);
+	AeqB = (A==B);
+end
+
+endmodule
