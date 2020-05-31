@@ -1,0 +1,43 @@
+`timescale 1ns / 1ps
+
+
+module four_bit_comparator_test;
+
+	// Inputs
+	reg [3:0] A;
+	reg [3:0] B;
+
+	// Outputs
+	wire AgtB;
+	wire AltB;
+	wire AeqB;
+
+	// Instantiate the Unit Under Test (UUT)
+	four_bit_comparator uut (
+		.A(A), 
+		.B(B), 
+		.AgtB(AgtB), 
+		.AltB(AltB), 
+		.AeqB(AeqB)
+	);
+
+	initial begin
+		// Initialize Inputs
+		A = 4'b1110;
+		B = 4'b1110;
+		#100;
+		
+		A = 4'b1110;
+		B = 4'b0000;
+		#100;
+		
+		A = 4'b0000;
+		B = 4'b1110;
+		#100 $finish;
+        
+		// Add stimulus here
+
+	end
+      
+endmodule
+
