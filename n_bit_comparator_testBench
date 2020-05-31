@@ -1,0 +1,43 @@
+`timescale 1ns / 1ps
+
+
+module n_bit_comparator_test;
+
+	// Inputs
+	reg [1:0] A;
+	reg [1:0] B;
+
+	// Outputs
+	wire AgtB;
+	wire AltB;
+	wire AeqB;
+
+	// Instantiate the Unit Under Test (UUT)
+	n_bit_comparator uut (
+		.A(A), 
+		.B(B), 
+		.AgtB(AgtB), 
+		.AltB(AltB), 
+		.AeqB(AeqB)
+	);
+
+	initial begin
+		// Initialize Inputs
+		A = 2'b10;
+		B = 2'b10;
+		#100;
+		
+		A = 2'b10;
+		B = 2'b00;
+		#100;
+		
+		A = 2'b00;
+		B = 2'b10;
+		#100 $finish;
+        
+		// Add stimulus here
+
+	end
+      
+endmodule
+
