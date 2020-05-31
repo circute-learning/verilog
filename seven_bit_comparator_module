@@ -1,0 +1,11 @@
+`timescale 1ns / 1ps
+
+module four_bit_comparator #(parameter w=7)(
+input [w-1:0]A,B,
+output AgtB,AltB,AeqB
+    );
+	 
+n_bit_comparator #(w) comp(A,B,AgtB,AltB,AeqB);
+
+
+endmodule
